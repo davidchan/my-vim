@@ -167,30 +167,38 @@ abbrev ff :! open -a firefox.app %:p<cr>
 
 
 """"""""""""""""""""""""""""""
-" => Vundle (https://github.com/gmarik/vundle)
+" => neobundle (https://github.com/Shougo/neobundle.vim)
 """"""""""""""""""""""""""""""
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
+if has('vim_starting')
+    set runtimepath+=~/.vim/bundle/neobundle.vim/
+endif
 
-" let Vundle manage Vundle
-" required! 
-Bundle 'gmarik/vundle'
+call neobundle#rc(expand('~/.vim/bundle/'))
+
+" Let NeoBundle manage NeoBundle
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 
 " github bundles
-Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdtree'
-Bundle 'Lokaltog/vim-powerline'
+NeoBundle 'kien/ctrlp.vim'
+NeoBundle 'scrooloose/nerdtree'
+NeoBundle 'Lokaltog/vim-powerline'     " ignore for now since it's busted, need to specify the right revision
+NeoBundle 'Shougo/neocomplcache'
 
 filetype plugin indent on       " turn filetype back on
+
+NeoBundleCheck
 
 """"""""""""""""""""""""""""""
 " => CtrlP
 """"""""""""""""""""""""""""""
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
+
+map <C-b> :CtrlPBuffer<cr>
 
 " working path
 let g:ctrlp_working_path_mode = 0       "'ra'
@@ -206,3 +214,8 @@ let g:ctrlp_custom_ignore = '\v[\/]\.(git|hg|svn)$'
 " => vim-powerline
 """"""""""""""""""""""""""""""
 let g:Powerline_symbols = 'fancy'
+
+""""""""""""""""""""""""""""""
+" => NeoComplCache
+""""""""""""""""""""""""""""""
+let g:neocomplcache_enable_at_startup = 1
