@@ -13,7 +13,7 @@ set columns=150
   
 "default MacVim colorscheme:
 set background=dark
-"colorscheme molokai
+"colorscheme molokai (https://github.com/tomasr/molokai)
 "colorscheme guardian
 "colorscheme vividchalk
 colorscheme molokai
@@ -25,7 +25,7 @@ set guioptions-=T
 set ignorecase
 
 " set font
-set guifont=Inconsolata-dz\ for\ Powerline:h12
-"set guifont=Inconsolata:h14
+"set guifont=Inconsolata-dz\ for\ Powerline:h12
+set guifont=Inconsolata:h14
 
-set transparency=10
+set transparency=5
